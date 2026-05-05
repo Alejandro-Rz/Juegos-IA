@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neurona vs Algoritmo</title>
+    <link rel="stylesheet" href="styles.css">
+   
+                                <!-- ============================================ -->
+                                <!-- INTEGRANTES DEL EQUIPO:                      -->
+                                <!-- - Mares Martinez Moises                      -->
+                                <!-- - Rodriguez Zamorate Alejandro               -->
+                                <!-- - Venancio Martinez Cesar                    -->
+                                <!-- ============================================ -->
+
+</head>
+<body>
+    <div class="container">
+        <h1>🎮 Tres Juegos, Un Enemigo: La IA 🎮</h1>
+        
+        <!------------------------------------------------ MENÚ PRINCIPAL: 3 juegos en vertical ------------------------------------------------------------------------->
+        <div id="menu" class="menu">
+            <div class="menu-option" onclick="showGame('gato')">
+                <div class="option-icon">🐱</div>
+                <div class="option-info">
+                    <div class="option-title">Gato</div>
+                    <div class="option-desc">Tres en raya vs IA - 3 niveles</div>
+                </div>
+                <div class="option-arrow">▶</div>
+            </div>
+            <div class="menu-option" onclick="showGame('nim')">
+                <div class="option-icon">🎲</div>
+                <div class="option-info">
+                    <div class="option-title">NIM</div>
+                    <div class="option-desc">Llegar a cero - Configurable</div>
+                </div>
+                <div class="option-arrow">▶</div>
+            </div>
+            <div class="menu-option" onclick="showGame('suma15')">
+                <div class="option-icon">🔢</div>
+                <div class="option-info">
+                    <div class="option-title">Sumar 15</div>
+                    <div class="option-desc">3 números sumen 15 vs IA</div>
+                </div>
+                <div class="option-arrow">▶</div>
+            </div>
+        </div>
+
+        <!----------------------------------------------- ESTADÍSTICAS (se actualizan dinámicamente) ---------------------------------------------------------------->
+        <div id="stats-container" class="stats-container"></div>
+
+        <!-------------------------------------------------------------------- JUEGO 1: GATO ------------------------------------------------------>
+        <div id="game-gato" class="game-area">
+            <button class="back-btn" onclick="backToMenu()">◀ Volver</button>
+            <div class="difficulty">
+                <button class="diff" data-diff="facil">Fácil</button>
+                <button class="diff" data-diff="medio">Medio</button>
+                <button class="diff active" data-diff="dificil">Difícil</button>
+            </div>
+            <div class="board" id="gato-board"></div>
+            <div class="message" id="gato-msg"></div>
+            <button class="reset" onclick="resetGato()">🔄 Reiniciar</button>
+        </div>
+
+        <!---------------------------------------------------------------------- JUEGO 2: NIM ---------------------------------------------------------------------->
+        <div id="game-nim" class="game-area">
+            <button class="back-btn" onclick="backToMenu()">◀ Volver</button>
+            <div class="nim-config">
+                <input type="number" id="nim-start" placeholder="Inicial" value="100">
+                <input type="number" id="nim-min" placeholder="Mín" value="1">
+                <input type="number" id="nim-max" placeholder="Máx" value="10">
+                <button onclick="applyNim()">Aplicar</button>
+            </div>
+            <div class="current-number" id="nim-current">100</div>
+            <div id="nim-controls" class="nim-controls"></div>
+            <div class="message" id="nim-msg"></div>
+            <button class="reset" onclick="resetNim()">🔄 Reiniciar</button>
+        </div>
+
+        <!---------------------------------------------------------------------- JUEGO 3: SUMAR 15 ---------------------------------------------------------------------->
+        <div id="game-suma15" class="game-area">
+            <button class="back-btn" onclick="backToMenu()">◀ Volver</button>
+            <div class="numbers" id="suma-numbers"></div>
+            <div class="selections"><span>👤 Tú: <span id="user-nums">-</span></span><span>🤖 IA: <span id="ia-nums">-</span></span></div>
+            <div class="message" id="suma-msg"></div>
+            <button class="reset" onclick="resetSuma()">🔄 Reiniciar</button>
+        </div>
+    </div>
+
+    <!---------------------------------------------------------------------- MODAL: pregunta quién empieza y símbolo (Gato) ---------------------------------------------------------------------->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h2 id="modal-title">¿Quién empieza?</h2>
+            <div id="modal-extra"></div>
+            <button id="user-first" class="modal-btn user-btn">👤 Yo</button>
+            <button id="ia-first" class="modal-btn ia-btn">🤖 IA</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

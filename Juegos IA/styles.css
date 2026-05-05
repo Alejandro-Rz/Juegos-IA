@@ -1,0 +1,71 @@
+/* RESETEO Y ESTILOS BASE */
+*{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:'Segoe UI',sans-serif;background:linear-gradient(135deg,#667eea,#764ba2);min-height:100vh;padding:20px;}
+.container{max-width:800px;margin:0 auto;background:white;border-radius:20px;overflow:hidden;box-shadow:0 20px 40px rgba(0,0,0,0.2);}
+h1{background:linear-gradient(135deg,#667eea,#764ba2);color:white;text-align:center;padding:20px;}
+
+/* MENÚ VERTICAL */
+.menu{padding:20px;}
+.menu-option{display:flex;align-items:center;gap:20px;padding:20px;margin:10px 0;background:#f7fafc;border-radius:15px;cursor:pointer;border:2px solid #e2e8f0;transition:0.3s;}
+.menu-option:hover{background:#edf2f7;transform:translateX(5px);border-color:#667eea;}
+.option-icon{font-size:3em;}
+.option-info{flex:1;}
+.option-title{font-size:1.3em;font-weight:bold;color:#2d3748;}
+.option-desc{font-size:0.85em;color:#718096;margin-top:5px;}
+.option-arrow{font-size:1.5em;color:#667eea;}
+
+/* ESTADÍSTICAS */
+.stats-container{padding:15px;background:#f7fafc;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0;}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;}
+.stat-card{text-align:center;background:white;padding:10px;border-radius:10px;}
+.stat-label{font-size:0.7em;color:#718096;font-weight:600;}
+.stat-value{font-size:1.6em;font-weight:bold;display:block;}
+.stat-card.user .stat-value{color:#48bb78;}
+.stat-card.ia .stat-value{color:#f56565;}
+.stat-card.draw .stat-value{color:#ed8936;}
+.stat-card.total .stat-value{color:#667eea;}
+
+/* ÁREA DE JUEGO */
+.game-area{display:none;padding:20px;}
+.game-area.active{display:block;}
+.back-btn{background:#f56565;color:white;border:none;padding:8px 20px;border-radius:20px;cursor:pointer;margin-bottom:20px;}
+
+/* GATO */
+.difficulty{display:flex;gap:10px;justify-content:center;margin-bottom:20px;}
+.diff{padding:8px 20px;background:#e2e8f0;border:none;border-radius:20px;cursor:pointer;}
+.diff.active{background:#667eea;color:white;}
+.board{display:grid;grid-template-columns:repeat(3,100px);gap:10px;justify-content:center;margin:20px auto;}
+.cell{width:100px;height:100px;background:#f7fafc;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:3em;font-weight:bold;cursor:pointer;border:2px solid #e2e8f0;}
+
+/* NIM */
+.nim-config{display:flex;gap:10px;justify-content:center;margin-bottom:20px;flex-wrap:wrap;}
+.nim-config input{padding:8px;border:1px solid #e2e8f0;border-radius:5px;width:80px;text-align:center;}
+.nim-config button{padding:8px 15px;background:#48bb78;color:white;border:none;border-radius:5px;cursor:pointer;}
+.current-number{font-size:4em;font-weight:bold;text-align:center;color:#667eea;margin:20px;}
+.nim-controls{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:20px;}
+.nim-btn{padding:12px 20px;background:#667eea;color:white;border:none;border-radius:10px;cursor:pointer;}
+
+/* SUMAR 15 */
+.numbers{display:grid;grid-template-columns:repeat(3,90px);gap:15px;justify-content:center;margin:20px auto;}
+.number{width:90px;height:90px;background:#f7fafc;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:2em;font-weight:bold;cursor:pointer;border:2px solid #e2e8f0;}
+.number.used{background:#48bb78;color:white;cursor:default;}
+.number.disabled{opacity:0.5;cursor:not-allowed;}
+.selections{display:flex;justify-content:center;gap:30px;margin:15px;padding:10px;background:#f7fafc;border-radius:10px;}
+.message{text-align:center;padding:15px;margin:15px;background:#edf2f7;border-radius:10px;font-weight:bold;}
+.reset{display:block;width:200px;margin:10px auto;padding:10px;background:#667eea;color:white;border:none;border-radius:10px;cursor:pointer;}
+
+/* MODAL */
+.modal{display:none;position:fixed;z-index:1000;left:0;top:0;width:100%;height:100%;background:rgba(0,0,0,0.5);}
+.modal-content{background:white;margin:15% auto;padding:30px;border-radius:20px;width:90%;max-width:400px;text-align:center;}
+.modal-btn{padding:12px 24px;margin:10px;font-size:1.1em;border:none;border-radius:10px;cursor:pointer;}
+.user-btn{background:#48bb78;color:white;}
+.ia-btn{background:#f56565;color:white;}
+
+/* RESPONSIVE */
+@media (max-width:600px){
+    .board{grid-template-columns:repeat(3,80px);}
+    .cell{width:80px;height:80px;font-size:2em;}
+    .numbers{grid-template-columns:repeat(3,70px);}
+    .number{width:70px;height:70px;font-size:1.5em;}
+    .current-number{font-size:2.5em;}
+}
